@@ -16,10 +16,10 @@ list(APPEND project_link_libs uuid)
 
 list(APPEND project_include_dirs
 	${CMAKE_SOURCE_DIR}/opennurbs/include
-	${CMAKE_SOURCE_DIR}/zlib
+	${CMAKE_SOURCE_DIR}/opennurbs/zlib
 )
 file(GLOB project_cpp_files
-	"${CMAKE_SOURCE_DIR}/zlib/*.c"
+	"${CMAKE_SOURCE_DIR}/opennurbs/zlib/*.c"
 	"${CMAKE_SOURCE_DIR}/opennurbs/src/*.cpp"
 )
 set(SRC
