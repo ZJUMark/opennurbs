@@ -429,7 +429,7 @@
 //    const MyClass c1; // fails with clang, works with gcc, Microsoft CL, ...
 //    const MyClass c2 ON_CLANG_CONSTRUCTOR_BUG_INIT(MyClass); // works with clang, gcc, Microsoft CL, ...
 //
-#define ON_CLANG_CONSTRUCTOR_BUG_INIT(ctor) = ctor()
+#define ON_CLANG_CONSTRUCTOR_BUG_INIT(ctor) =(ctor())
 #else
 #define ON_CLANG_CONSTRUCTOR_BUG_INIT(ctor)
 #endif

@@ -56,12 +56,12 @@ CFLAGS = $(ON_GNU_COMMON_FLAGS)
 CCC = g++
 # uncomment below for Clang
 #CCC = clang++
-CCFLAGS = $(ON_GNU_COMMON_FLAGS) -std=c++14
+CCFLAGS = $(ON_GNU_COMMON_FLAGS) -std=c++17
 
 LINK = $(CCC)
-LINKFLAGS =
+# LINKFLAGS =
 # below necessary LINKFLAGS on Linux for the UUID library
-#LINKFLAGS = -luuid
+LINKFLAGS = -luuid
 
 ###############################################################
 
@@ -843,22 +843,22 @@ $(OPENNURBS_LIB_FILE) : $(ON_OBJ) $(ZLIB_OBJ)
 ##	$(RANLIB) $@
 
 example_read/example_read : example_read/example_read.o example_userdata/example_ud.o $(OPENNURBS_LIB_FILE)
-	$(LINK) $(LINKFLAGS) example_read/example_read.o example_userdata/example_ud.o -L. -l$(OPENNURBS_LIB_NAME) -lm -o $@
+	$(LINK) example_read/example_read.o example_userdata/example_ud.o -L. -l$(OPENNURBS_LIB_NAME) $(LINKFLAGS) -lm -o $@
 
 example_write/example_write : example_write/example_write.o example_userdata/example_ud.o $(OPENNURBS_LIB_FILE)
-	$(LINK) $(LINKFLAGS) example_write/example_write.o example_userdata/example_ud.o -L. -l$(OPENNURBS_LIB_NAME) -lm -o $@
+	$(LINK) example_write/example_write.o example_userdata/example_ud.o -L. -l$(OPENNURBS_LIB_NAME) $(LINKFLAGS) -lm -o $@
 
 example_test/example_test : example_test/example_test.o $(OPENNURBS_LIB_FILE)
-	$(LINK) $(LINKFLAGS) example_test/example_test.o -L. -l$(OPENNURBS_LIB_NAME) -lm -o $@
+	$(LINK) example_test/example_test.o -L. -l$(OPENNURBS_LIB_NAME) $(LINKFLAGS) -lm -o $@
 
 example_convert/example_convert : example_convert/example_convert.o example_userdata/example_ud.o $(OPENNURBS_LIB_FILE)
-	$(LINK) $(LINKFLAGS) example_convert/example_convert.o example_userdata/example_ud.o -L. -l$(OPENNURBS_LIB_NAME) -lm -o $@
+	$(LINK) example_convert/example_convert.o example_userdata/example_ud.o -L. -l$(OPENNURBS_LIB_NAME) $(LINKFLAGS) -lm -o $@
 
 example_brep/example_brep : example_brep/example_brep.o $(OPENNURBS_LIB_FILE)
-	$(LINK) $(LINKFLAGS) example_brep/example_brep.o -L. -l$(OPENNURBS_LIB_NAME) -lm -o $@
+	$(LINK) example_brep/example_brep.o -L. -l$(OPENNURBS_LIB_NAME) $(LINKFLAGS) -lm -o $@
 
 example_userdata/example_userdata : example_userdata/example_userdata.o $(OPENNURBS_LIB_FILE)
-	$(LINK) $(LINKFLAGS) example_userdata/example_userdata.o -L. -l$(OPENNURBS_LIB_NAME) -lm -o $@
+	$(LINK) example_userdata/example_userdata.o -L. -l$(OPENNURBS_LIB_NAME) $(LINKFLAGS) -lm -o $@
 
 clean :
 	-$(RM) $(OPENNURBS_LIB_FILE)
