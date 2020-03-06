@@ -2,8 +2,9 @@
 > From Rhino3d Official: ["What is openNURBS?"](https://developer.rhino3d.com/guides/opennurbs/what-is-opennurbs)
 
 3.6.2020
-* remove `freetype` and `zlib` from source.
+* remove `freetype` from source.
 * add CMake support.
+* due to z_prefix version of zlib they use. I compiled all zlib source into the openNURBS library.
 
 
 
