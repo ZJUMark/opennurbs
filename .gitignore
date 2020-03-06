@@ -12,7 +12,7 @@ example_read/example_read
 example_test/example_test
 example_userdata/example_userdata
 example_write/example_write
-
+example_write/*.3dm
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
